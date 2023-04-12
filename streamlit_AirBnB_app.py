@@ -9,12 +9,6 @@ from pandas.api.types import (
 
 st.title("Filter your Airbnb Listings dataframe!")
 
-st.write(
-    """This app is based on this blog [here](https://blog.streamlit.io/auto-generate-a-dataframe-filtering-ui-in-streamlit-with-filter_dataframe/). 
-    Can you think of ways to extend it with visuals?
-    """
-)
-
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -31,7 +25,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     df = df.copy()
 
-    # Try to convert datetimes into a standard format (datetime, no timezone)
+    #Try to convert datetimes into a standard format (datetime, no timezone)
     for col in df.columns:
         if is_object_dtype(df[col]):
             try:
@@ -92,6 +86,6 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 
 df = pd.read_csv(
-    "WK2_Airbnb_Amsterdam_listings_proj_solution.csv", index_col=0
+    "Pandas_Airbnb_Amsterdam_listings_project.csv", index_col=0
 )
 st.dataframe(filter_dataframe(df))
